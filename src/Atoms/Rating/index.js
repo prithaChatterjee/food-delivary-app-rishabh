@@ -2,11 +2,11 @@ import React from 'react'
 import { AiFillStar} from 'react-icons/ai'
 import { StyleRating } from './style.rating'
 
-const Rating = () => {
+const Rating = ({rate}) => {
     return (
-        <StyleRating>
+        <StyleRating rate={rate}>
             <AiFillStar />
-            <span>4.0</span>
+            <span>{rate}</span>
         </StyleRating>
     )
 }

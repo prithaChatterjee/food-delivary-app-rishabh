@@ -2,10 +2,11 @@ import React from 'react'
 import Rating from '../../Atoms/Rating'
 import { StyleCategoryrating } from './style.categoryrating'
 
-const CategoryRating = ({categoryName}) => {
+const CategoryRating = (props) => {
+    const {categoryName, rate} = props
     return (
         <StyleCategoryrating>
-            <Rating />
+            <Rating rate={rate.toFixed(1)} />
             <span className="categoryName">{categoryName}</span>
         </StyleCategoryrating>
     )

@@ -4,22 +4,24 @@ import StyleResturentCoverPage from './style.ResturentCoverPage'
 import burger from "../../assests/burger.jpg";
 import CategoryRating from '../../molecules/CategoryRating';
 
-const ResturentCover = () => {
+const ResturentCover = (props) => {
+    const {categories, name, location, _id} = props
     return (
         <StyleResturentCoverPage>
-            <Link to={`/resturents/1`}>
+            <Link to={`/resturent-details/${_id}`}>
                 <figure>
                     <img src={burger} width="100%" height="100%" alt="burger" />
                     <figcaption>
-                        <h3>Big Crust</h3>
+                        <h3>{name}</h3>
                         <section className="ratingsBg">
-                            <CategoryRating categoryName="Dinner" />
-                            <div>|</div>
-                            <CategoryRating categoryName="Dinner" />
+                            {
+                                categories?.map(res => <CategoryRating key={res._id} rate={res.rating} 
+                                    categoryName={res.category.name} />)
+                            }
                         </section>
                         <section>
                             <div className="food-items">Pizza, Pasta, Shake, Desserts , foods</div>
-                            <p className='location'>Khandari, Agra</p>
+                            <p className='location'>{location.address}, {location.city.name}</p>
                         </section>
                     </figcaption>
                 </figure>
