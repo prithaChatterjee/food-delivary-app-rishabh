@@ -6,10 +6,9 @@ import Heading from '../../../molecules/Heading/Innerpage'
 import { StyleHeader } from './style.header'
 
 const Header = () => {
-    const param = useParams()
     const location = useLocation()
-    console.log(param)
     const city = new URLSearchParams(location.search).get('name')
+    const category = new URLSearchParams(location.search).get('category')
     return (
         <StyleHeader>
             <Container>
@@ -17,7 +16,8 @@ const Header = () => {
                 <hr />
                 <Breadcrumbs>
                     <Link to={"/"}>home</Link>
-                    <span>{city} Resturents</span>
+                    <span>{city}</span>
+                    <span>{category}</span>
                 </Breadcrumbs>
             </Container>
         </StyleHeader>

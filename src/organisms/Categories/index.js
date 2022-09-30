@@ -1,20 +1,17 @@
 import { CategoryItems } from "../../molecules/CategoryItems"
 import { StyleCategories } from "./categories.style"
-import burger from "../../assests/burger.jpg";
+import { useSelector } from "react-redux";
+// import burger from "../../assests/burger.jpg";
 import dinning from "../../assests/dinning.jpg";
-import buffet from "../../assests/buffet.jpg";
-import pickup from "../../assests/pickup.jpg";
+// import buffet from "../../assests/buffet.jpg";
+// import pickup from "../../assests/pickup.jpg";
 
 const Categories = () => {
-    const categories = [
-        {name: "Order online", img: burger},
-        {name: "Dinning", img: dinning},
-        {name: "Buffet", img: buffet},
-        {name: "Pick Up", img: pickup}
-    ]
+  const {categoryReducer} = useSelector(state => state)
   return (
     <StyleCategories>
-        {categories.map(res => <CategoryItems name={res.name} img={res.img} />)}
+        {categoryReducer?.data?.map(res => <CategoryItems key={res._id} name={res.name} 
+          img={dinning} route={`/resturents/${res._id}?category=${res.name}`} />)}
     </StyleCategories>
   )
 }

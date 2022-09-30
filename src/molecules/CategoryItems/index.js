@@ -6,7 +6,7 @@ import LinkPrimary from '../../Atoms/linkPrimary';
 
 export const CategoryItems = ({name, img, route}) => {
     return (
-        <LinkPrimary style={{fontSize: "25px", fontWeight: "400"}} to={"/"}>
+        <LinkPrimary style={{fontSize: "25px", fontWeight: "400"}} to={route}>
             <Card>
                 <CardBody>
                     <img src={img} width="100%" height="100%" alt="" />
