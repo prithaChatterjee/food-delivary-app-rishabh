@@ -3,19 +3,18 @@ import Rating from '../../Atoms/Rating'
 import { BsFillRecordCircleFill } from "react-icons/bs";
 import { StyleDishes } from './style.dishes';
 
-const Dish = () => {
+const Dish = (props) => {
+    const {description, name, price, rating} = props
     return (
         <StyleDishes>
             <div className="numbering">
                 <BsFillRecordCircleFill />
             </div>
             <div className="itemDetails">
-                <h3>Paneer Lababdar</h3>
-                <p>$500</p>
-                <Rating rate={4.0} />
-                <div>Cottage cheese cubes cooked in a freshly onion tomato masala gravy
-                    finished
-                    with cream.</div>
+                <h3>{name}</h3>
+                <p>${price}</p>
+                <Rating rate={rating} />
+                <div>{description}</div>
             </div>
         </StyleDishes>
     )
