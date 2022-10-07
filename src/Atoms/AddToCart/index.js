@@ -2,7 +2,7 @@ import React from 'react'
 import { AiOutlinePlusCircle, AiOutlineMinusCircle } from "react-icons/ai";
 import { StyleAddToCart, StyleAddToCartWithOutIcon } from './style.addtocart';
 
-const AddToCart = ({ number }) => {
+const AddToCart = ({ number, handleClick}) => {
     if (number > 0) {
         return (
             <StyleAddToCart>
@@ -12,7 +12,7 @@ const AddToCart = ({ number }) => {
             </StyleAddToCart>
         )
     } else {
-        return <StyleAddToCartWithOutIcon>Add to Cart</StyleAddToCartWithOutIcon>
+        return <StyleAddToCartWithOutIcon onClick={handleClick}>Add to Cart</StyleAddToCartWithOutIcon>
     }
 }
 

@@ -1,11 +1,26 @@
-import React from 'react'
+import React, {useState} from 'react'
 import Rating from '../../Atoms/Rating'
 import { BsFillRecordCircleFill } from "react-icons/bs";
 import { StyleDishes } from './style.dishes';
 import AddToCart from '../../Atoms/AddToCart';
+import { useDispatch, useSelector } from 'react-redux';
+import { createCart } from '../../Store/cart';
 
 const Dish = (props) => {
-    const { description, name, price, rating } = props
+    const { description, name, price, rating, _id} = props
+    const {userReducer} = useSelector(state => state)
+    const dispatch = useDispatch()
+    const [quantity, setquantity] = useState(0)
+    const handleCart = () => dispatch(createCart({
+        user: userReducer.data._id,
+        items: [{
+            productId: _id,
+            quantity: quantity + 1,
+            price,
+            total: quantity * price
+        }],
+        subTotal: 200
+    }))
     return (
         <StyleDishes>
             <div>
@@ -20,7 +35,7 @@ const Dish = (props) => {
                 </div>
             </div>
             <div>
-                <AddToCart number={0}/>
+                <AddToCart handleClick={handleCart} number={quantity} />
             </div>
         </StyleDishes>
     )

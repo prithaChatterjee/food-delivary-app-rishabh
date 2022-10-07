@@ -2,10 +2,10 @@ import React from 'react'
 import { Button, StyleIconButton } from './button.style'
 
 const Index = (props) => {
-    const {children, variant, color, fontSize, onClick, type="button"} = props
+    const {children, variant, color, fontSize, onClick, type="button", fullWidth} = props
     return (
         <Button type={type} variant={variant} color={color} fontSize={fontSize}
-        onClick={onClick}>{children}</Button>
+        onClick={onClick} fullWidth={fullWidth}>{children}</Button>
     )
 }
 

@@ -4,7 +4,8 @@ import userReducer from '../user'
 import locationReducer from '../locations'
 import categoryReducer from '../categories'
 import resturentReducer from "../resturents";
-import dishesReducer from '../dishes'
+import dishesReducer from '../dishes';
+import cartReducer from "../cart";
 
 export default combineReducers({
   itemReducer,
@@ -12,5 +13,6 @@ export default combineReducers({
   locationReducer,
   categoryReducer,
   resturentReducer,
-  dishesReducer
+  dishesReducer,
+  cartReducer
 })

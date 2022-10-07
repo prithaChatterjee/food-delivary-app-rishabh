@@ -5,7 +5,7 @@ import OtherOptions from '../../molecules/OtherOptions/OtherOptions'
 const OtherCategories = () => {
   return (
     <section>
-        <Header />
+        <Header><h1>Explore other options for you here</h1></Header>
         <OtherOptions />
     </section>
   )

@@ -11,6 +11,13 @@ export const StyleDishes = styled.div`
         align-items: flex-start;
         & > div.itemDetails h3, & > div.itemDetails p, & > div.itemDetails div{
             margin-bottom: 0.375rem
+        };
+        & > div.numbering{
+            color: green
         }
+    };
+    & > div:last-child{
+        flex-direction: column;
+        align-items: flex-end;
     }
 `
