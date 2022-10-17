@@ -6,13 +6,13 @@ const AddToCart = ({ number, handleClick}) => {
     if (number > 0) {
         return (
             <StyleAddToCart>
-                <button><AiOutlinePlusCircle /></button>
+                <button onClick={() => handleClick(true)}><AiOutlinePlusCircle /></button>
                 <div>{number}</div>
-                <button><AiOutlineMinusCircle /></button>
+                <button onClick={() => handleClick()}><AiOutlineMinusCircle /></button>
             </StyleAddToCart>
         )
     } else {
-        return <StyleAddToCartWithOutIcon onClick={handleClick}>Add to Cart</StyleAddToCartWithOutIcon>
+        return <StyleAddToCartWithOutIcon onClick={() => handleClick(true)}>Add to Cart</StyleAddToCartWithOutIcon>
     }
 }
 

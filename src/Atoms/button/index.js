@@ -13,7 +13,8 @@ const Index = (props) => {
 export const IconButton = (props) => {
     const {children, onClick} = props
     return (
-        <StyleIconButton variant="text" color='red' onClick={onClick}>{children}</StyleIconButton>
+        <StyleIconButton {...props}
+         variant="text" onClick={onClick}>{children}</StyleIconButton>
     )
 }
 

@@ -1,4 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit'
+import { apicallbegin } from './api'
 
 const initialState = {
     loader: false,
@@ -6,23 +7,37 @@ const initialState = {
 }
 
 export const counterSlice = createSlice({
-    name: 'counter',
+    name: 'cart',
     initialState,
     reducers: {
-        createCart: (state, action) => {
-            console.log(action.payload)
+        startApiCall: (state) => {
+            state.loader = true
+        },
+        getCart: (state, action) => {
+            state.loader = false
             state.data = action.payload
         },
-        increment: (state) => {
-            state.value += 1
+        createCart: (state, action) => {
+            state.loader = false
+        },
+        increment: (state, action) => {
+            console.log(action.payload)
         },
         decrement: (state) => {
             state.value -= 1
         },
+        cartcallFaliour: (state) => {
+            state.loader = false
+            state.data = null
+        }
     },
 })
 
 // Action creators are generated for each case reducer function
-export const {createCart, increment, decrement } = counterSlice.actions
+export const {createCart, getCart, decrement, startApiCall, cartcallFaliour} = counterSlice.actions
+
+export const handleCartRequest = payload => dispatch => dispatch(apicallbegin({
+    ...payload, onStart: startApiCall.type, onError: cartcallFaliour.type
+}))
 
 export default counterSlice.reducer

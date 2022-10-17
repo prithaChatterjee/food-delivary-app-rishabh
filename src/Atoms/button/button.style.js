@@ -40,7 +40,6 @@ export const Button = styled.button`
 `;
 
 export const StyleIconButton = styled(Button)`
-  font-size: 20px;
-  padding: 0.375rem;
-  color: black
+  font-size: ${props => props.fontSize || "20px"};
+  color: ${props => props.color || "black"};
 `;

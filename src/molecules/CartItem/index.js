@@ -1,24 +1,25 @@
 import React from 'react'
-import AddToCart from '../../Atoms/AddToCart'
+import AddToCart from '../../Atoms/Cart/AddToCart'
 import { BsArrowRightSquareFill } from "react-icons/bs";
 import { StyleDishes } from '../Dishes/style.dishes'
 import { StyleCartItem } from './Style.CartItem';
 
-const CartItem = () => {
+const CartItem = (props) => {
+    const {price, productId, quantity, total} = props
     return (
         <StyleDishes>
             <div>
-                <div class="numbering">
+                <div className="numbering">
                     <BsArrowRightSquareFill />
                 </div>
-                <div class="itemDetails">
+                <div className="itemDetails">
                     <StyleCartItem>Chicken Biriyani</StyleCartItem>
-                    <p>$400</p>
+                    <p>${price}</p>
                 </div>
             </div>
             <div>
-                <AddToCart />
-                <p>$400</p>
+                <AddToCart number={quantity} />
+                <p>${total}</p>
             </div>
         </StyleDishes>
     )

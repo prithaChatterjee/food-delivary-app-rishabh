@@ -10,7 +10,6 @@ const api = ({dispatch}) => (next) => async (action) => {
     try {
         const result = await axios({baseURL, url, method, data})
         dispatch({type: onSuccess, payload: result.data})
-        console.log(result.data)
     } catch (error) {
         dispatch({type: onError, payload: error.message})
     }
